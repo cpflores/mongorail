@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  isbn: MyString
+  abstract: MyText
+  pages: 1
+  price: 1.5
+  released_at: 2017-03-23
+
+two:
+  title: MyString
+  isbn: MyString
+  abstract: MyText
+  pages: 1
+  price: 1.5
+  released_at: 2017-03-23
