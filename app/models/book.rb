@@ -7,5 +7,6 @@ class Book
   field :price, type: Float
   field :released_at, type: Date
 
-  belongs_to :author 
+  belongs_to :author
+  embeds_many :reviews, order: :created_at.desc
 end

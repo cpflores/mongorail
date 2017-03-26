@@ -35,5 +35,20 @@
   <%= @book.released_at %>
 </p>
 
+<h2>Reviews</h2>
+
+<% if @book.reviews.count > 0 %>
+  <% @book.reviews.each do |review| %>
+    <div>
+      <hr>
+      <h4 style="margin-bottom: 0">(<%= review.score %>/5) <%= review.title %></h4>
+      <em>by <%= review.name %> on <%= review.created_at.to_s(:short) %></em>
+      <p><%= simple_format review.comment %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p><em>This book has no reviews yet. Create one!</em></p>
+<% end %>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
