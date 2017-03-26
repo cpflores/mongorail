@@ -6,4 +6,6 @@ class Book
   field :pages, type: Integer
   field :price, type: Float
   field :released_at, type: Date
+
+  belongs_to :author 
 end

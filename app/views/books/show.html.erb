@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Author:</strong>
+  <%= @book.author.full_name if @book.author %>
+</p>
+
+<p>
   <strong>Isbn:</strong>
   <%= @book.isbn %>
 </p>

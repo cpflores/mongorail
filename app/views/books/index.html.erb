@@ -7,6 +7,7 @@
     <tr>
       <th>ISBN</th>
       <th>Title</th>
+      <th>Author</th>
       <th>Pages</th>
       <th>Price</th>
       <th>Recommended Age</th>
@@ -19,6 +20,7 @@
       <tr>
         <td><%= book.isbn %></td>
         <td><%= book.title %></td>
+        <td><%= book.author.full_name if book.author %></td>
         <td><%= book.pages %></td>
         <td><%= book.price %></td>
         <td><%= book.minimum_age %>–<%= book.maximum_age %></td>
