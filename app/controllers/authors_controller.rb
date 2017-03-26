@@ -5,6 +5,30 @@ class AuthorsController < ApplicationController
   # GET /authors.json
   def index
     @authors = Author.all
+
+    map = %Q{
+      function() {
+        if (this.author_id) {
+          emit(this.author_id, { pages: this.pages });
+        }
+      }
+    }
+
+    reduce = %Q{
+      function(key, values) {
+        var result = { books: 0, pages: 0 };
+        values.forEach(function(value) {
+          result.books += 1;
+          result.pages += value.pages;
+        });
+        return result;
+      }
+    }
+
+    @author_data = {}
+    Book.map_reduce(map, reduce).out(inline: true).find().to_a. each do |author|
+      @author_data[author["_id"]] = author["value"]
+    end
   end
 
   # GET /authors/1
