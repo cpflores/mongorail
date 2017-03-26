@@ -37,6 +37,8 @@
 
 <h2>Reviews</h2>
 
+<%= render partial: 'review_form', locals: { book: @book } %>
+
 <% if @book.reviews.count > 0 %>
   <% @book.reviews.each do |review| %>
     <div>
